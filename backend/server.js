@@ -19,19 +19,10 @@ const profileRoutes=require("./routes/profileRoutes");
 const cookieParser=require("cookie-parser");
 
 app.use(
-
-cors(
-
-{
-
-origin:"http://localhost:3000",
-
-credentials:true
-
-}
-
-)
-
+cors({
+origin: true,
+credentials: true
+})
 );
 app.use(express.json());
 app.use(cookieParser());
@@ -114,8 +105,8 @@ res.send("CampusSync Backend Running");
 });
 
 
-app.listen(5000, () => {
+const PORT = process.env.PORT || 5000;
 
-console.log("Server running on port 5000");
-
+app.listen(PORT, () => {
+console.log(`Server running on port ${PORT}`);
 });
